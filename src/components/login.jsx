@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Redirect, useHistory } from "react-router";
 import { connect } from "react-redux";
 import { signInWithGoogle } from "../actions/index";
+// import { Query } from "@firebase/firestore/dist/lite";
 const Login = (props) => {
   let history = useHistory();
 
@@ -15,9 +16,20 @@ const Login = (props) => {
           </a>
         </Img>
         <div>
-          <Join>Join now</Join>
+          <Contact>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfA-kYp4XqSr6BKcuF4ePpgFL7IAvBMf6AD0fAn3PO2hHJIMg/viewform">
+              Query
+            </a>
+          </Contact>
+          <Join
+            onClick={() => {
+              history.push("/register");
+            }}
+          >
+            Join now
+          </Join>
           <SignIn
-            onClick = {() => {
+            onClick={() => {
               history.push("/sign-up");
             }}
           >
@@ -68,6 +80,25 @@ const Nav = styled.nav`
   }
 `;
 
+const Contact = styled.a`
+  & > a {  
+    font-size: 16px;
+    padding: 0px 0px;
+    width: 135px;
+    height: 34px;
+    text-decoration: none;
+    border-radius: 4px;
+    color: rgba(0, 0, 0, 0.6);
+    margin-right: 12px;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.08);
+      color: rgba(0, 0, 0, 0.9);
+      text-decoration: none;
+    }
+    @media (max-width: 768px) {
+      padding: 0 5px;
+    }
+`;
 const Join = styled.a`
   font-size: 16px;
   padding: 10px 12px;

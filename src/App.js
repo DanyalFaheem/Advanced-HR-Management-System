@@ -3,6 +3,8 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./components/login";
 import SignIn from "./components/sign";
+import Reg from "./components/reg";
+
 import Header from "./components/header";
 import Home from "./components/home";
 function App() {
@@ -16,7 +18,11 @@ function App() {
           <Route exact path="/sign-up">
             <SignIn />
           </Route>
+          <Route exact path="/register">
+            <Reg/>
+          </Route>
           <Route path="/home">
+            
             <Header />
             <Home />
           </Route>
